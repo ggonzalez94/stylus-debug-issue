@@ -21,8 +21,9 @@
 //! Note: this code is a template-only and has not been audited.
 //!
 
-// Allow `cargo stylus export-abi` to generate a main function.
-#![cfg_attr(not(feature = "export-abi"), no_main)]
+// If I add no_std, then I get a different error:
+// error: `#[panic_handler]` function required, but not found
+#![cfg_attr(not(test), no_main)]
 extern crate alloc;
 
 /// Import items from the SDK. The prelude contains common traits and macros.
